@@ -12,7 +12,7 @@ options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 
-while(True):
+while(True): #while pra ele ficar rodando sempre
   chrome = webdriver.Chrome('chromedriver',options=options)
   sites=['https://www.receiteria.com.br/receitas-fit/',
          'https://www.receiteria.com.br/receitas-fitness-simples/',
@@ -118,4 +118,4 @@ while(True):
   
   api.update_status(status=texto) #Então postamos no twitter o texto gerado
 	#chrome.quit()
-  time.sleep(3600)
+  time.sleep(3600) #define um tempo de espera de 1 hora para cada postagem
