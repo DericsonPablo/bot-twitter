@@ -1,4 +1,4 @@
-!apt install chromium-chromedriver
+!apt install chromium-chromedriver #bibliotecas necessárias
 !cp /usr/lib/chromium-browser/chromedriver /usr/bin
 !pip install selenium
 import time
@@ -7,7 +7,7 @@ import tweepy
 import random
 from selenium.webdriver.common.by import By
 from selenium import webdriver
-options = webdriver.ChromeOptions()
+options = webdriver.ChromeOptions() # options declaradas para que o algoritmo rode no google colab
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
@@ -32,7 +32,7 @@ while(True):
          'https://www.receiteria.com.br/receitas-de-brownie-fit/',
          'https://www.receiteria.com.br/receitas-de-bolo-de-caneca-fit/',
          'https://www.receiteria.com.br/receitas-de-pao-de-queijo-fit/',
-         'https://www.receiteria.com.br/receitas-de-bolinho-de-chuva-assado/']
+         'https://www.receiteria.com.br/receitas-de-bolinho-de-chuva-assado/'] #exemplos de sites com receitas
 
   num = random.randint(0,18)
   site = sites[num]
@@ -93,24 +93,24 @@ while(True):
   post_link = conteudo[numero].get_attribute('href')
 
   hashtags = ['#emagrecer', '#perderpeso', 'quero perder peso', 'quero emagrecer',
-              'emagrecer', 'perder peso', 'preciso emagrcer', 'preciso perder peso', 'emagrecer já', 'perder peso agora'  ]
+              'emagrecer', 'perder peso', 'preciso emagrcer', 'preciso perder peso', 'emagrecer já', 'perder peso agora'  ] #hashtags sobre o assunto 
 
   numero2 = random.randint(0,5)
   numero3 = random.randint(0,5)
   tag = hashtags[numero2] 
   tag1 = hashtags[numero3]
 
-  texto = "{titulo} \nLink: {link} \n\n\n\n Mais Receitas para SECAR: http://bit.ly/ReceitasParaSECAR_ \n\n\n\n TAGS (ignore) \n {hashtag1} {hashtag2} ".format(
+  texto = "{titulo} \nLink: {link} \n\n\n\n TAGS (ignore) \n {hashtag1} {hashtag2} ".format(
 	      titulo=post_title,
 	      link=post_link,
         hashtag1 = tag,
         hashtag2 = tag1)
   print(texto)
-  #Quer resultado rápido? Desconto: http://bit.ly/360SlimSITEOFICIAL 
-  consumer_secret = "EgmFJLqNCpOEMl8tqzPvCsfRYdYPFFt54KrYCMJn4lkSTxQj6n"
-  consumer_key = "xzBocEtjSfIWHDv7YjSBQ5Wnc"           #Credencias do twitter dev
-  access_token = "1193679655519305729-r8F2K8fwxpsaFFaBFNrq8TbC8V5L16"
-  access_token_secret = "n9NemkfT9GqBqFUcBEi6efnsZWN02ByzoHXMxLGLfs1vH"
+ 
+  consumer_secret = ""
+  consumer_key = ""           #Credenciais do twitter dev necessárias para postar no twitter através da API
+  access_token = ""
+  access_token_secret = ""
   
   auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
   auth.set_access_token(access_token, access_token_secret)
