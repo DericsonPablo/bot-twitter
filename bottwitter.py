@@ -34,9 +34,9 @@ while(True):
          'https://www.receiteria.com.br/receitas-de-pao-de-queijo-fit/',
          'https://www.receiteria.com.br/receitas-de-bolinho-de-chuva-assado/'] #exemplos de sites com receitas
 
-  num = random.randint(0,18)
+  num = random.randint(0,18) #escolhe o site de maneira aleatória usando random
   site = sites[num]
-  print("site eh: ",site)
+  print("site eh: ",site) #printa site escolhido
   chrome.get(site)
   if(num == 18):
     conteudo = chrome.find_elements_by_css_selector('h2 a')
@@ -50,12 +50,12 @@ while(True):
   print("tamanho de conteudo: ", len(conteudo))
   
   numero = 0
-  if (num == 0):
-    numero = random.randint(0, 100)
+  if (num == 0): #ifs para escolher uma receita aleatória no site escolhido acima
+    numero = random.randint(0, 100) #primeiro site possui 100 receitas, por isso random entre 0 e 100
   elif(num == 1):
-    numero = random.randint(0, 73)
+    numero = random.randint(0, 73) #segundo site possui 73 receitas
   elif(num == 2):
-    numero = random.randint(0, 36)
+    numero = random.randint(0, 36) #assim por diante..
   elif(num == 3):
     numero = random.randint(0, 40)
   elif(num == 4):
